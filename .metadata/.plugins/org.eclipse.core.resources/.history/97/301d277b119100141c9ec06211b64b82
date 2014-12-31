@@ -1,0 +1,9 @@
+package exam.dev.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+public class DailyMood extends HttpServlet {
+
+	private static final long serialVersionUID = -1623573968810638828L;
+
+}
