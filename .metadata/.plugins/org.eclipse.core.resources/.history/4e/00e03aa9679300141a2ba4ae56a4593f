@@ -1,0 +1,67 @@
+package exam.dev.servlet;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import exam.dev.utils.DateUtil;
+import exam.dev.utils.FileUtil;
+
+public class DailyMood extends HttpServlet {
+
+	private static final long serialVersionUID = -1623573968810638828L;
+	
+	private Map<String, String> moodByTime = new HashMap<String, String>(24);
+	
+	@Override
+	public void init() throws ServletException {
+		// TODO log here
+		super.init();
+		
+		try {
+			ClassLoader classLoader = getClass().getClassLoader();
+			Properties props = FileUtil.loadConfiguration(classLoader);
+			
+			// Load all moods
+			File moodFile = FileUtil.getFileFromClassPath(classLoader, props.getProperty(FileUtil.MOODS_FILE_PATH));
+			
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObj = (JSONObject) jsonParser.parse(new FileReader(moodFile));
+			for (int h = 0; h < 24; h++) {
+				String mood = (String) jsonObj.get(Integer.toString(h));
+				moodByTime.put(Integer.toString(h), mood);
+			}
+		}catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		String mood = moodByTime.get(DateUtil.getClientTime(req, "HH"));
+		
+		PrintWriter out = resp.getWriter();
+	    out.println(mood);
+	}
+	
+}

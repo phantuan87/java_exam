@@ -1,0 +1,19 @@
+package exam.dev.utils;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
+public final class FileUtil {
+	private static final String MOODS_FILE_PATH = "MOODS_FILE_PATH";
+	private static final String CONFIG_PATH = "config.properties";
+	
+	private FileUtil() {}
+	
+	public static Properties loadConfiguration(ClassLoader classLoader) throws FileNotFoundException, IOException {
+		Properties props = new Properties();
+		props.load(new FileReader(classLoader.getResource(CONFIG_PATH).getFile()));
+		return props;
+	}
+}

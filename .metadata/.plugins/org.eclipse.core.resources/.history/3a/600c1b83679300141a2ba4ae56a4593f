@@ -1,0 +1,18 @@
+package exam.dev.utils;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+public final class DateUtil {
+	private DateUtil() {}
+	
+	public static String getClientTime(HttpServletRequest req) {
+		Locale locale = req.getLocale();
+		Calendar calendar = Calendar.getInstance(locale);
+		SimpleDateFormat formatter = new SimpleDateFormat("HH");
+		return formatter.format(calendar.getTime());
+	}
+}

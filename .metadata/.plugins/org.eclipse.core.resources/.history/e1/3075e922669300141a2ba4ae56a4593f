@@ -1,0 +1,14 @@
+package exam.dev.utils;
+
+import java.io.FileReader;
+import java.util.Properties;
+
+public final class FileUtil {
+
+	private FileUtil() {}
+	
+	public static Properties loadConfiguration(ClassLoader classLoader) {
+		Properties props = new Properties();
+		props.load(new FileReader(classLoader.getResource(CONFIG_PATH).getFile()));
+	}
+}

@@ -1,0 +1,74 @@
+package exam.dev.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class DailyMood extends HttpServlet {
+
+	private static final long serialVersionUID = -1623573968810638828L;
+
+	private Map<String, String> moodByTime = new HashMap<String, String>();
+	
+	@Override
+	public void init() throws ServletException {
+		// TODO log here
+		super.init();
+		
+		// Load all moods
+		moodByTime.put("0", "Sleepy");
+		moodByTime.put("1", "Sleepy");
+		moodByTime.put("2", "Sleepy");
+		moodByTime.put("3", "Sleepy");
+		moodByTime.put("4", "Sleepy");
+		moodByTime.put("5", "Sleepy");
+		moodByTime.put("6", "Sleepy");
+		moodByTime.put("7", "Hungry");
+		moodByTime.put("8", "Alert");
+		moodByTime.put("9", "Alert");
+		moodByTime.put("10", "Alert");
+		moodByTime.put("11", "In need of coffee");
+		moodByTime.put("12", "Alert");
+		moodByTime.put("13", "Hungry");
+		moodByTime.put("14", "Alert");
+		moodByTime.put("15", "In need of coffee");
+		moodByTime.put("16", "Alert");
+		moodByTime.put("17", "Alert");
+		moodByTime.put("18", "Hungry");
+		moodByTime.put("19", "Thoughtful");
+		moodByTime.put("20", "Thoughtful");
+		moodByTime.put("21", "Thoughtful");
+		moodByTime.put("22", "Lethargic");
+		moodByTime.put("23", "Sleepy");
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		String clientTime = getClientTime(req);
+		
+		String mood = moodByTime.get(clientTime);
+		
+		PrintWriter out = resp.getWriter();
+	    out.println(mood);
+	}
+	
+	private String getClientTime(HttpServletRequest req) {
+		Locale locale = req.getLocale();
+		Calendar calendar = Calendar.getInstance(locale);
+//		TimeZone timeZone = calendar.getTimeZone();
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("HH");
+		return formatter.format(calendar.getTime());
+	}
+}
