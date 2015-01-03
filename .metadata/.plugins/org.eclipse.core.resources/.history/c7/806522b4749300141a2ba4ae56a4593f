@@ -13,21 +13,16 @@
 		<!-- <load-on-startup>1</load-on-startup> -->
 	</servlet>
 	
-	<servlet-mapping>
-		<servlet-name>DailyMood</servlet-name>
-		<url-pattern>/*</url-pattern>
-	</servlet-mapping>
-	
 	<servlet>
 		<servlet-name>ErrorHandler</servlet-name>
 		<servlet-class>
 			exam.dev.servlet.ErrorHandler
 		</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
-		<servlet-name>ErrorHandler</servlet-name>
-		<url-pattern>/ErrorHandler</url-pattern>
+		<servlet-name>DailyMood</servlet-name>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
 	<error-page>

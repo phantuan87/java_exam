@@ -58,6 +58,7 @@ public class DailyMood extends HttpServlet {
 			
 			getServletContext().log("Moods: " + moodByTime.toString());
 			
+			throw new FileNotFoundException();
 		}catch (FileNotFoundException ex) {
 			handleException(ex);
         } catch (IOException ex) {

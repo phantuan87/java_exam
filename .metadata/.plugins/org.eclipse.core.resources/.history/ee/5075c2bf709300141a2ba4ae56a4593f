@@ -29,6 +29,7 @@ import exam.dev.utils.FileUtil;
 public class DailyMood extends HttpServlet {
 
 	private static final long serialVersionUID = -1623573968810638828L;
+	
 	private Map<String, String> moodByTime;
 	
 	@Override
@@ -57,26 +58,21 @@ public class DailyMood extends HttpServlet {
 			}
 			
 			getServletContext().log("Moods: " + moodByTime.toString());
-			
 		}catch (FileNotFoundException ex) {
-			handleException(ex);
+			getServletContext().log(ex.getMessage());
+            ex.printStackTrace();
         } catch (IOException ex) {
-        	handleException(ex);
+        	getServletContext().log(ex.getMessage());
+            ex.printStackTrace();
         } catch (ParseException ex) {
-        	handleException(ex);
+        	getServletContext().log(ex.getMessage());
+            ex.printStackTrace();
         }
-	}
-	
-	private void handleException(Exception ex) throws ServletException {
-		getServletContext().log(ex.getMessage());
-        ex.printStackTrace();
-        throw new ServletException(ex.getMessage());
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 		getServletContext().log("doGet - get Mood by client time");
 		String clientTime = DateUtil.getClientTime(req, "H");
 		

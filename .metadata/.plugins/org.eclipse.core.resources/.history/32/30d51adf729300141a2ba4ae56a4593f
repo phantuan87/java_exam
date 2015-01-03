@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -29,7 +31,9 @@ import exam.dev.utils.FileUtil;
 public class DailyMood extends HttpServlet {
 
 	private static final long serialVersionUID = -1623573968810638828L;
+	private static final String CLIENT_MSG = "Oops! Something went wrong!";
 	private Map<String, String> moodByTime;
+	private boolean initError = false;
 	
 	@Override
 	public void init() throws ServletException {
@@ -58,6 +62,7 @@ public class DailyMood extends HttpServlet {
 			
 			getServletContext().log("Moods: " + moodByTime.toString());
 			
+			throw new FileNotFoundException();
 		}catch (FileNotFoundException ex) {
 			handleException(ex);
         } catch (IOException ex) {
@@ -67,15 +72,18 @@ public class DailyMood extends HttpServlet {
         }
 	}
 	
-	private void handleException(Exception ex) throws ServletException {
+	private void handleException(Exception ex) {
 		getServletContext().log(ex.getMessage());
         ex.printStackTrace();
-        throw new ServletException(ex.getMessage());
+        initError = true;
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		if (initError) {
+			show(resp, CLIENT_MSG);
+		}
 		
 		getServletContext().log("doGet - get Mood by client time");
 		String clientTime = DateUtil.getClientTime(req, "H");
