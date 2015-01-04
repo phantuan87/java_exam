@@ -18,11 +18,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import exam.dev.utils.DailyMoodConst;
 import exam.dev.utils.DateUtil;
 import exam.dev.utils.FileUtil;
 
 /**
- * DailyMood Servlet
+ * The main servlet handle showing Moods.
  * @author phantuan
  *
  */
@@ -46,7 +47,7 @@ public class DailyMood extends HttpServlet {
 			Properties props = FileUtil.loadConfiguration(classLoader);
 			
 			getServletContext().log("Load Mood file");
-			File moodFile = FileUtil.getFileFromClassPath(classLoader, props.getProperty(FileUtil.MOODS_FILE_PATH));
+			File moodFile = FileUtil.getFileFromClassPath(classLoader, props.getProperty(DailyMoodConst.MOODS_FILE_PROP));
 			
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(new FileReader(moodFile));

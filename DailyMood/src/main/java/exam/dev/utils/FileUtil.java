@@ -8,25 +8,22 @@ import java.net.URL;
 import java.util.Properties;
 
 /**
- * 
+ * The File utilization class.
  * @author phantuan
  *
  */
 public final class FileUtil {
-	public static final String MOODS_FILE_PATH = "MOODS_FILE_PATH";
-	
-	private static final String CONFIG_PATH = "config.properties";
 	
 	private FileUtil() {}
 	
 	public static Properties loadConfiguration(ClassLoader classLoader) throws FileNotFoundException, IOException {
-		URL resource = classLoader.getResource(CONFIG_PATH);
+		URL resource = classLoader.getResource(DailyMoodConst.CONFIG_PATH);
 		if (resource == null) {
-			throw new FileNotFoundException("File Not Found:  " + CONFIG_PATH);
+			throw new FileNotFoundException("File Not Found:  " + DailyMoodConst.CONFIG_PATH);
 		}
 		
 		Properties props = new Properties();
-		props.load(new FileReader(classLoader.getResource(CONFIG_PATH).getFile()));
+		props.load(new FileReader(classLoader.getResource(DailyMoodConst.CONFIG_PATH).getFile()));
 		return props;
 	}
 	

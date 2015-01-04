@@ -7,7 +7,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 
+ * The Date Utilization class.
  * @author phantuan
  *
  */
