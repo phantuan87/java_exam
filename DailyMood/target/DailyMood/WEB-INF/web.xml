@@ -10,12 +10,11 @@
 		<servlet-class>
 			exam.dev.servlet.DailyMood
 		</servlet-class>
-		<!-- <load-on-startup>1</load-on-startup> -->
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>DailyMood</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/DailyMood</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -35,8 +34,8 @@
 		<location>/ErrorHandler</location>
 	</error-page>
 	
-	<!-- <welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list> -->
+	<welcome-file-list>
+		<welcome-file>DailyMood</welcome-file>
+	</welcome-file-list>
 	
 </web-app>

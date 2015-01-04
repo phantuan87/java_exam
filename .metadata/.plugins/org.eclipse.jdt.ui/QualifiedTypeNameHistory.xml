@@ -21,4 +21,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="exam.dev.utils.DailyMoodConst"/>
+<fullyQualifiedTypeName name="javax.jws.WebService"/>
 </qualifiedTypeNameHistroy>

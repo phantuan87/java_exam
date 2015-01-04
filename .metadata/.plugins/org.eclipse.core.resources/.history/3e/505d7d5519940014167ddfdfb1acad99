@@ -1,0 +1,12 @@
+package exam.dev.servlet;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class CommonServlet extends HttpServlet {
+
+	public void forwardToPage(HttpServletRequest req, HttpServletResponse resp) {
+		
+	}
+}

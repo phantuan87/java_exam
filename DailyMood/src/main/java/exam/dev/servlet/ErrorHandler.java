@@ -1,7 +1,6 @@
 package exam.dev.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +31,6 @@ public class ErrorHandler extends HttpServlet {
 	}
 	
 	private void doErrorHandler(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// customize error message
 		Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
 		String servletName = (String) req
 				.getAttribute("javax.servlet.error.servlet_name");
@@ -44,7 +42,7 @@ public class ErrorHandler extends HttpServlet {
 				+ " has thrown an exception " + throwable.getClass().getName()
 				+ " : " + throwable.getMessage());
 		
-		PrintWriter out = resp.getWriter();
-	    out.println(CLIENT_MSG);
+		req.setAttribute("msg", CLIENT_MSG);
+		req.getRequestDispatcher("/error.jsp").forward(req, resp);
 	}
 }
