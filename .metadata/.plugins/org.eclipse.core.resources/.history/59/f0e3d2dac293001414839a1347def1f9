@@ -77,26 +77,20 @@ public class DailyMood extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		handleRequest(req, resp);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		handleRequest(req, resp);
-	}
-	
-	private void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		getServletContext().log("doGet - get Mood by client time");
 		String clientTime = DateUtil.getClientTime(req, "H");
 		
 		String mood = moodByTime.get(clientTime);
 		getServletContext().log("ClientTime/mood: " + clientTime + "/" + mood);
 		
-		PrintWriter out = resp.getWriter();
-	    out.println(mood);
+		show(resp, mood);
 	}
 	
+	private void show(HttpServletResponse resp, String data) throws ServletException, IOException {
+		PrintWriter out = resp.getWriter();
+	    out.println(data);
+	}
 	
 	@Override
 	public void destroy() {

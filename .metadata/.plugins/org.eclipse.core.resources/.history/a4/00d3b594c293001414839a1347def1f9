@@ -25,12 +25,6 @@ public class ErrorHandler extends HttpServlet {
 		doErrorHandler(req, resp);
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		doErrorHandler(req, resp);
-	}
-	
 	private void doErrorHandler(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// customize error message
 		Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
