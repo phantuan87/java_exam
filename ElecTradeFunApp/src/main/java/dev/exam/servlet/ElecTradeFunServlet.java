@@ -3,10 +3,14 @@ package dev.exam.servlet;
 import java.io.IOException;
 
 import javax.naming.Context;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dev.exam.bean.ElectTradeFunServiceRemote;
+import dev.exam.utils.ClientUtil;
 
 public class ElecTradeFunServlet extends HttpServlet {
 
@@ -14,6 +18,7 @@ public class ElecTradeFunServlet extends HttpServlet {
 
 	private static final String MODULE_NAME = "ElecTradeFunService-1.0-SNAPSHOT";
 	private static final String REMOTE_BEAN_NAME = "ElectTradeFunService";
+	private static final String INTERFACE_NAME = "dev.exam.bean.ElectTradeFunServiceRemote";
 			
 	
 	@Override
@@ -31,7 +36,18 @@ public class ElecTradeFunServlet extends HttpServlet {
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Context context = null;
+		ElectTradeFunServiceRemote remoteBean = null;
 		
+		try {
+			context = ClientUtil.getInitialContext();
+			String lookupName = ClientUtil.getLookupName("", MODULE_NAME, "", REMOTE_BEAN_NAME, INTERFACE_NAME);
+			remoteBean = (ElectTradeFunServiceRemote) context.lookup(lookupName);
+			
+			remoteBean.getAllTrades();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

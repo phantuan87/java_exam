@@ -164,7 +164,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                         <argument>-classpath</argument>
                         <classpath>
                         </classpath>
-                        <argument>com.theopentutorials.ejb3.Client</argument>
+                        <argument>exam.dev</argument>
                     </arguments>
                 </configuration>
             </plugin>
