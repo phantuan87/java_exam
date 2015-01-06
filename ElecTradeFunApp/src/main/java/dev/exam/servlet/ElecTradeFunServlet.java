@@ -2,6 +2,7 @@ package dev.exam.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -44,8 +45,15 @@ public class ElecTradeFunServlet extends HttpServlet {
 			String lookupName = ClientUtil.getLookupName("", MODULE_NAME, "", REMOTE_BEAN_NAME, INTERFACE_NAME);
 			remoteBean = (ElectTradeFunServiceRemote) context.lookup(lookupName);
 			
-			// TODO 
-			remoteBean.getAllTrades();
+			// Call EFT service to get all trades
+			List<String> allTrades = remoteBean.getAllTrades();
+			
+			PrintWriter out = resp.getWriter();
+		    out.println("<h1> All trades </h1>");
+		    
+		    for (String trade : allTrades) {
+		    	out.println(trade + "</br>");
+			}
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
