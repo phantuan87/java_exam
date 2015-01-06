@@ -142,9 +142,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            
+            <!-- JBoss AS plugin to deploy the application -->
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>${version.org.jboss.as.plugins.maven.plugin}</version>
+                <configuration>
+                    <filename>${project.build.finalName}.war</filename>
+                </configuration>
+            </plugin>
  
             <!-- Add the maven exec plugin to allow us to run a java program via maven -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>${version.exec.plugin}</version>
@@ -159,15 +169,15 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <executable>java</executable>
                     <workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory>
                     <arguments>
-                        <!-- automatically creates the classpath using all project dependencies,
-                            also adding the project build directory -->
+                        automatically creates the classpath using all project dependencies,
+                            also adding the project build directory
                         <argument>-classpath</argument>
                         <classpath>
                         </classpath>
                         <argument>exam.dev</argument>
                     </arguments>
                 </configuration>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
   
