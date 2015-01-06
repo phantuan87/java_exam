@@ -6,23 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>ElecTradeFund</title>
 	
-	<style>
-		#home #container {
-		    margin-left: auto;
-		    margin-right: auto;
-		    width: 300px;
-		}
-		
-		#home .tradeTitle {
-			font-weight: bold;
-			font-size: 18px;
-			padding: 10px;
-		}
-		
-		#home .number {
-			text-align: right;
-		}
-	</style>
+	<link href="css/home.css" rel="stylesheet">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
 	
@@ -31,6 +15,10 @@
 			(function() {
 				
 				$.getJSON('ElecTradeFund', function(data) {
+					if (data['status'] === 'error') {
+						window.location.replace("ErrorHandler");
+					}
+					
 					var row = "";
 				    $.each(data, function(key, element) {
 				    	row += "<tr>" 

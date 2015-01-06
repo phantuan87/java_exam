@@ -1,9 +1,0 @@
-package dev.exam.bean;
-
-import javax.ejb.Remote;
-
-@Remote
-public interface ElecTradeFunRemote {
-
-	public String getTrade();
-}

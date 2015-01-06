@@ -40,8 +40,11 @@ public class ElecTradeFunServlet extends HttpServlet {
 	
 	private void handleRequest(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		getServletContext().log("Handle request");
+		
 		Context context = null;
 		ElectTradeFunServiceRemote remoteBean = null;
+		String allTrades = "";
 		
 		try {
 			context = ClientUtil.getInitialContext();
@@ -49,16 +52,27 @@ public class ElecTradeFunServlet extends HttpServlet {
 			remoteBean = (ElectTradeFunServiceRemote) context.lookup(lookupName);
 			
 			// Call EFT service to get all trades
-			String allTrades = remoteBean.getAllTrades();
+			allTrades = remoteBean.getAllTrades();
 			
-		    resp.setContentType("text/plain");
+			if (true) {
+				throw new NamingException();
+			}
+			
+			resp.setContentType("text/plain");
 		    resp.getWriter().write(allTrades);
-		    
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+		} catch (NamingException ex) {
+			handleException(ex, resp);
+		} catch (Exception ex) {
+			handleException(ex, resp);
 		}
 	}
 	
-	
+	private void handleException(Exception ex, HttpServletResponse resp) throws ServletException, IOException  {
+		getServletContext().log(ex.getMessage());
+        ex.printStackTrace();
+        
+        resp.setContentType("text/plain");
+	    resp.getWriter().write("{status:error}");
+	}
 }

@@ -252,3 +252,44 @@
 2015-01-07 01:41:00,268 [Worker-84] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
 2015-01-07 01:41:09,381 [Worker-63] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
 2015-01-07 01:41:09,391 [Worker-63] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 01:54:33,425 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 01:54:33,425 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 01:54:54,956 [Worker-90] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 01:54:54,957 [Worker-90] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 01:55:03,744 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 01:55:03,744 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 01:57:08,865 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-01-07 01:57:08,875 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-01-07 01:57:08,875 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-01-07 01:57:08,875 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Development\workspace\java_exam\ElecTradeFunApp\src\test\resources
+2015-01-07 01:57:08,875 [ModalContext] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of ElecTradeFunApp
+2015-01-07 01:57:08,875 [ModalContext] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for ElecTradeFunApp
+2015-01-07 01:57:08,895 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-01-07 01:57:36,894 [Worker-89] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 01:57:36,894 [Worker-89] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 01:57:46,841 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 01:57:46,841 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:07:27,979 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:07:27,979 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:07:37,929 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:07:37,929 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:09:22,101 [Worker-90] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:09:22,101 [Worker-90] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:09:33,186 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:09:33,186 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:14:01,984 [Worker-63] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:14:01,984 [Worker-63] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:14:12,824 [Worker-93] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:14:12,834 [Worker-93] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:15:42,810 [Worker-91] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:15:42,810 [Worker-91] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:15:51,589 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:15:51,589 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:18:03,791 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:18:03,801 [Worker-88] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:18:11,873 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:18:11,873 [Worker-82] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy
+2015-01-07 02:22:54,654 [Worker-95] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:22:54,654 [Worker-95] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2015-01-07 02:23:07,988 [Worker-95] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Development\workspace\java_exam\ElecTradeFunApp
+2015-01-07 02:23:07,988 [Worker-95] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B jboss-as:deploy

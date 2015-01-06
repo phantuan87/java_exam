@@ -14,4 +14,17 @@
 		<servlet-name>ElecTradeFunServlet</servlet-name>
 		<url-pattern>/ElecTradeFund</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ErrorHandler</servlet-name>
+		<servlet-class>
+			dev.exam.servlet.ErrorHandler
+		</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ErrorHandler</servlet-name>
+		<url-pattern>/ErrorHandler</url-pattern>
+	</servlet-mapping>
+
 </web-app>
