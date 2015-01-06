@@ -68,6 +68,11 @@
             <scope>provided</scope>
         </dependency>
  
+ 		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
     </dependencies>
  
     <build>
@@ -79,7 +84,7 @@
                 <artifactId>jboss-as-maven-plugin</artifactId>
                 <version>${version.org.jboss.as.plugins.maven.plugin}</version>
                 <configuration>
-                    <filename>${project.build.finalName}.jar</filename>
+                    <filename>${project.build.finalName}-jar-with-dependencies.jar</filename>
                 </configuration>
             </plugin>
             
@@ -104,6 +109,31 @@
                     <generateClient>true</generateClient>
                 </configuration>
             </plugin>
+            
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-assembly-plugin</artifactId>
+			    <version>2.5.3</version>
+			    <configuration>
+			      <descriptorRefs>
+			        <descriptorRef>jar-with-dependencies</descriptorRef>
+			      </descriptorRefs>
+			      <archive>
+			        <manifest>
+			          <mainClass>org.json.simple.JSONArray</mainClass>
+			          <mainClass>org.json.simple.JSONObject</mainClass>
+			        </manifest>
+			      </archive>
+			    </configuration>
+			    <executions>
+			      <execution>
+			        <phase>package</phase>
+			        <goals>
+			          <goal>single</goal>
+			        </goals>
+			      </execution>
+			    </executions>
+			 </plugin>
         </plugins>
     </build>
 </project>

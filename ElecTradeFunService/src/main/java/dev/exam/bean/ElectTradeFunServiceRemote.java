@@ -1,10 +1,13 @@
 package dev.exam.bean;
 
-import java.util.List;
-
 import javax.ejb.Remote;
 
+/**
+ * 
+ * @author phantuan
+ *
+ */
 @Remote
 public interface ElectTradeFunServiceRemote {
-	public List<String> getAllTrades();
+	public String getAllTrades();
 }

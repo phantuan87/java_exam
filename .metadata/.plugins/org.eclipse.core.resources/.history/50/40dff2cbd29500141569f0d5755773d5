@@ -1,0 +1,12 @@
+package dev.exam.utils;
+
+import java.util.Random;
+
+public final class NumberUtil {
+
+	private NumberUtil() {}
+	
+	public static Integer randomNumber(int range) {
+		return new Random().nextInt(range);
+	}
+}

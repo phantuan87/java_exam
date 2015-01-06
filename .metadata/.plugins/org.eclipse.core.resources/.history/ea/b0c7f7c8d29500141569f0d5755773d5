@@ -1,0 +1,5 @@
+package dev.exam.utils;
+
+public final class NumberUtil {
+
+}
